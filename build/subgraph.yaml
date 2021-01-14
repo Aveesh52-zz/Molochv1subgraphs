@@ -2,13 +2,13 @@ specVersion: 0.0.2
 description: Molochv1subgraphs
 repository: https://github.com/Aveesh52/Molochv1subgraphs
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Moloch
     network: matic
     source:
-      address: '0x32Abeac0B13a4001c68Ac402EbEd7FC154DFf6f0'
+      address: "0x32Abeac0B13a4001c68Ac402EbEd7FC154DFf6f0"
       abi: Molochv1
     mapping:
       kind: ethereum/events
@@ -18,8 +18,9 @@ dataSources:
         - Proposal
       abis:
         - name: Molochv1
-          file: ./abis/Molochv1.json
+          file: Moloch/abis/Molochv1.json
       eventHandlers:
-        - event: SubmitProposal(uint256,indexed address,indexed address,indexed address,uint256,uint256)
+        - event: SubmitProposal(uint256,indexed address,indexed address,indexed
+            address,uint256,uint256)
           handler: handleSubmitProposal
-      file: ./src/mapping.ts
+      file: Moloch/Moloch.wasm
